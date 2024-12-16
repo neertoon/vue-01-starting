@@ -1,9 +1,15 @@
-let button = document.querySelector('button');
-let input = document.querySelector('input');
-let list = document.querySelector('ul');
+Vue.createApp({
+    data() {
+        return {
+            goals: [],
+            enteredValue: ''
+        };
+    },
 
-button.addEventListener('click', function() {
-    let li = document.createElement('li');
-    li.innerText = input.value;
-    list.appendChild(li);
-})
+    methods: {
+        addGoal() {
+            this.goals.push(this.enteredValue);
+            this.enteredValue = '';
+        }
+    }
+}).mount(document.getElementById('app'));
